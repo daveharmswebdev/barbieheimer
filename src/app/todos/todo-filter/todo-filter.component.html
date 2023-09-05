@@ -1,0 +1,27 @@
+<form [formGroup]='form' (ngSubmit)='filter()'>
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select formControlName='status'>
+      <mat-option [value]='0'>New</mat-option>
+      <mat-option [value]='1'>InProgress</mat-option>
+      <mat-option [value]='2'>Completed</mat-option>
+      <mat-option [value]='3'>Cancelled</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="search">
+    <mat-label>Search by Title or Description</mat-label>
+    <input
+      matInput
+      value=""
+      formControlName="search"
+      onclick="this.select();"
+    />
+  </mat-form-field>
+  <button
+    mat-mini-fab
+    color="primary"
+    type="submit"
+  >
+    <mat-icon>search</mat-icon>
+  </button>
+</form>

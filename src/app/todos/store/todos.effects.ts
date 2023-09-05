@@ -9,9 +9,9 @@ export class TodosEffects {
   loadTodos$ = createEffect(() =>
     this.actions$.pipe(
       ofType(loadTodos),
-      exhaustMap(({ page, pageSize, search, sortBy, status }) =>
+      exhaustMap(({ page, pageSize, search, sortBy, isAscending, status }) =>
         this.todoService
-          .getPagedTodos(page, pageSize, search, sortBy, status)
+          .getPagedTodos(page, pageSize, search, sortBy, isAscending, status)
           .pipe(
             map(response => loadTodosSuccess({ response })),
             catchError(error => of(loadTodosFailure(error)))

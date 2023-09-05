@@ -1,0 +1,8 @@
+form {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  .search {
+    min-width: 25rem;
+  }
+}

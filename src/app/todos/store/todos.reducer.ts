@@ -36,7 +36,7 @@ export const reducer = createReducer(
   on(
     TodoActions.loadTodosSuccess,
     (state, { response: { page, pageSize, totalCount, totalPages, items } }) =>
-      adapter.upsertMany(items, {
+      adapter.setAll(items, {
         ...state,
         loading: false,
         error: null,

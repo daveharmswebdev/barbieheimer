@@ -10,6 +10,7 @@ export const loadTodos = createAction(
     pageSize?: number;
     search?: string;
     sortBy?: string;
+    isAscending: boolean;
     status?: number;
   }>()
 );

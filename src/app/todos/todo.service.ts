@@ -15,6 +15,7 @@ export class TodoService {
     pageSize = 10,
     search = '',
     sortBy = '',
+    isAscending = true,
     status = 0
   ): Observable<IPageAble<ITodoListItem>> {
     const queryParams = new HttpParams()
@@ -22,6 +23,7 @@ export class TodoService {
       .append('pageSize', pageSize)
       .append('search', search)
       .append('sortBy', sortBy)
+      .append('isAscending', isAscending)
       .append('status', status);
 
     return this.http.get<IPageAble<ITodoListItem>>(
