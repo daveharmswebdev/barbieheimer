@@ -25,6 +25,7 @@ import { AddSortingOtherComponent } from './add-sortinging-other/add-sorting-oth
 import { TodosOtherComponent } from './todos-other/todos-other.component';
 import { TypeAheadComponent } from './type-ahead/type-ahead.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MouseEventComponent } from './mouse-event/mouse-event.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     AddSortingOtherComponent,
     TodosOtherComponent,
     TypeAheadComponent,
+    MouseEventComponent,
   ],
   imports: [
     CommonModule,

@@ -9,6 +9,7 @@ import { AddSortingComponent } from './add-sorting/add-sorting.component';
 import { AddSortingOtherComponent } from './add-sortinging-other/add-sorting-other.component';
 import { TodosOtherComponent } from './todos-other/todos-other.component';
 import { TypeAheadComponent } from './type-ahead/type-ahead.component';
+import { MouseEventComponent } from './mouse-event/mouse-event.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'other',
     component: TodosOtherComponent,
+  },
+  {
+    path: 'mouse',
+    component: MouseEventComponent,
   },
   {
     path: 'the-worst',

@@ -1,11 +1,11 @@
 <ul>
-  <li *ngFor='let todo of todos'>{{todo.id}}: {{todo.title}}</li>
+  <li *ngFor="let todo of todos">{{ todo.id }}: {{ todo.title }}</li>
 </ul>
 
 <ul>
-  <li *ngFor='let todo of todos$ | async'>{{todo.id}}: {{todo.title}}</li>
+  <li *ngFor="let todo of todos$ | async">{{ todo.id }}: {{ todo.title }}</li>
 </ul>
 
-<ul>
-  <li *ngFor='let todo of aaTodos'>{{todo.id}}: {{todo.title}}</li>
-</ul>
+<!--<ul>-->
+<!--  <li *ngFor="let todo of aaTodos">{{ todo.id }}: {{ todo.title }}</li>-->
+<!--</ul>-->

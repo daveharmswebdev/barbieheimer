@@ -1,0 +1,10 @@
+<div class="container">
+  <div #mouseContainer class="mouse"></div>
+
+  <div class="output" [ngStyle]="{ 'background-color': color$ | async }">
+    <div class="text">
+      Mouse X: {{ (mousePosition$ | async)?.x }}, Mouse Y:
+      {{ (mousePosition$ | async)?.y }}
+    </div>
+  </div>
+</div>
