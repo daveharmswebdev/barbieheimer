@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../todo.service';
 import { ITodoListItem } from '../models/ITodoListItem';
-import { map, Observable } from 'rxjs';
+import { lastValueFrom, map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-worst',
@@ -10,6 +10,8 @@ import { map, Observable } from 'rxjs';
 })
 export class WorstComponent implements OnInit {
   todos: ITodoListItem[] | undefined;
+
+  aaTodos: ITodoListItem[] | undefined;
 
   todos$: Observable<ITodoListItem[]> = this.todoService
     .getPagedTodos()
@@ -21,5 +23,13 @@ export class WorstComponent implements OnInit {
     this.todoService
       .getPagedTodos()
       .subscribe(pagedTodos => (this.todos = pagedTodos.items));
+
+    this.goAhead();
+  }
+
+  async goAhead() {
+    const todos = await lastValueFrom(this.todoService.getPagedTodos());
+
+    this.aaTodos = todos.items;
   }
 }

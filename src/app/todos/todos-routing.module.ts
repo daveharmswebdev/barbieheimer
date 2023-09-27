@@ -36,11 +36,11 @@ const routes: Routes = [
     component: PaginationOptionComponent,
   },
   {
-    path: 'filtering',
+    path: 'sorting',
     component: AddSortingComponent,
   },
   {
-    path: 'filtering-other',
+    path: 'sorting-other',
     component: AddSortingOtherComponent,
   },
   {
