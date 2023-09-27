@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   BehaviorSubject,
   combineLatest,
@@ -21,7 +21,7 @@ import { Sort } from '@angular/material/sort';
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss'],
 })
-export class TodosComponent implements OnInit {
+export class TodosComponent implements OnInit, OnDestroy {
   destroy$ = new Subject<boolean>();
   paginatedTodosState$: Observable<IPageableTodoState> = this.store
     .select(selectTodosPaginationState)
@@ -74,6 +74,11 @@ export class TodosComponent implements OnInit {
             })
           )
       );
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next(true);
+    this.destroy$.unsubscribe();
   }
 
   pageEvent(event: PageEvent) {

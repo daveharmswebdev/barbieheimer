@@ -1,0 +1,56 @@
+<div class='container' *ngIf='paginatedTodosState$ | async as state'>
+  <table mat-table [dataSource]='state.todos' matSort
+         (matSortChange)="sortData($event)">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="id"> No. </th>
+      <td mat-cell *matCellDef="let todo"> {{todo.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="title"> Title </th>
+      <td mat-cell *matCellDef="let todo"> {{todo.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let todo"> {{todo.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let todo"> {{todo.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdAt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="createdAd"> Created At </th>
+      <td mat-cell *matCellDef="let todo"> {{todo.createdAt | date }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="modifiedAt">
+      <th mat-header-cell *matHeaderCellDef> Modified At </th>
+      <td mat-cell *matCellDef="let todo"> {{todo.modifiedAt | date }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <ng-template [ngIf]="state.totalCount > 0" [ngIfElse]="noResults">
+    <mat-paginator
+      [length]="state.totalCount"
+      [pageSizeOptions]="[10, 20]"
+      (page)="pageEvent($event)"
+      showFirstLastButtons
+    ></mat-paginator>
+  </ng-template>
+  <ng-template #noResults>
+    <h3
+      *ngIf="state.todos.length === 0"
+      class="text-platinum text-center pt-10"
+    >
+      No records found
+    </h3>
+  </ng-template>
+
+</div>
+

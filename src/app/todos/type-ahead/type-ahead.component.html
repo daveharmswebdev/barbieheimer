@@ -1,0 +1,28 @@
+<div class='container'>
+  <mat-form-field>
+    <mat-label>Todo Title</mat-label>
+    <input
+      type="text"
+      aria-label="Patient Name"
+      matInput
+      [formControl]='todoFc'
+      onclick="this.select();"
+      [matAutocomplete]="patientNameAuto"
+    />
+    <mat-autocomplete
+      #patientNameAuto="matAutocomplete"
+      [displayWith]="displayFn"
+    >
+      <mat-option
+        *ngFor="let option of todoDropDownOptions$ | async"
+        [value]="option"
+      >
+        {{ option.title }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+
+  <pre>{{ todoFc.value | json }}</pre>
+
+</div>

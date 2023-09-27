@@ -17,9 +17,28 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
+import { WorstComponent } from './worst/worst.component';
+import { PaginationComponent } from './pagination/pagination.component';
+import { AddSortingComponent } from './add-sorting/add-sorting.component';
+import { PaginationOptionComponent } from './pagination-option/pagination-option.component';
+import { AddSortingOtherComponent } from './add-sortinging-other/add-sorting-other.component';
+import { TodosOtherComponent } from './todos-other/todos-other.component';
+import { TypeAheadComponent } from './type-ahead/type-ahead.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
-  declarations: [TodosComponent, TodoDetailComponent, TodoFilterComponent],
+  declarations: [
+    TodosComponent,
+    TodoDetailComponent,
+    TodoFilterComponent,
+    WorstComponent,
+    PaginationComponent,
+    AddSortingComponent,
+    PaginationOptionComponent,
+    AddSortingOtherComponent,
+    TodosOtherComponent,
+    TypeAheadComponent,
+  ],
   imports: [
     CommonModule,
     TodosRoutingModule,
@@ -34,6 +53,7 @@ import { MatSortModule } from '@angular/material/sort';
     EffectsModule.forFeature([TodosEffects]),
     MatPaginatorModule,
     ReactiveFormsModule,
+    MatAutocompleteModule,
   ],
 })
 export class TodosModule {}

@@ -31,4 +31,15 @@ export class TodoService {
       { params: queryParams }
     );
   }
+
+  getTodoDropdown(
+    value: string = ''
+  ): Observable<{ id: number; title: string }[]> {
+    const url =
+      value.length > 0
+        ? `https://localhost:7106/api/Todos/dropdowns?search=${value}`
+        : 'https://localhost:7106/api/Todos/dropdowns';
+
+    return this.http.get<{ id: number; title: string }[]>(url);
+  }
 }
